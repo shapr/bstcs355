@@ -58,7 +58,7 @@ bool BST::Insert(int e) {
 				root->left */
 }
 
-bool insertHelper(BNode *n, int e) {
+bool BST::insertHelper(BNode *n, int e) {
 
 	BNode * next;
 	
@@ -79,6 +79,18 @@ bool insertHelper(BNode *n, int e) {
 		else { 
 			return	insertHelper(next, e);
 		}
+}
+
+void BST::PrintIn(BNode * n, ostream & oss){
+	
+	if (n->left) PrintInHelp(n->left, oss);
+	
+	// any left legs have been printed
+	oss << n.GetData(); // Print itself
+	
+	if (n->right) PrintInHelp(n->right, oss);
+	return oss;
+
 }
 		
 		
