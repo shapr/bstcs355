@@ -77,7 +77,8 @@ bool BST::InsertHelp(int e, BNode *&n) {
   if (next == NULL) {
     // Creating a New node
     BNode * nn = new BNode(e); // new returns a pointer
-    next = nn;
+    if (e < n->data) n->left = nn;
+    else n->right = nn;
     return true;
   }
   else {
