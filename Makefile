@@ -7,13 +7,11 @@ CXXFLAGS = -pedantic -Wno-long-long -Wno-missing-field-initializers -Wall -W -Wu
 
 .PHONY: all
 
-all: LL.o Node.o llmain # fraction.o fracmain 
+all: Bst.o BST_Driver # fraction.o fracmain
 
 # abstractarray absary
 
-fracmain: fraction.o
-
-llmain: LL.o Node.o
+BST_Driver: Bst.o
 
 myprogram: abstractarray.o absary.o
 	$(CXX) $+ -o $@

@@ -1,4 +1,4 @@
-#include "BST.h"
+#include "Bst.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -7,7 +7,7 @@ void PrintMenu();
 
 
 int main(){
-	
+
 	BST testBST;
 	BST testAssign;
 	BNode* temp;
@@ -19,7 +19,7 @@ int main(){
 	cin >> choice;
 
 	while(choice != 'q' && choice != 'Q'){
-		
+
 		if (choice == '!'){
 			BST testCopy(testBST);
 			cout << "Result:" << "Print New Copy" << endl;
@@ -37,12 +37,12 @@ int main(){
 				case '+':
 					cin >> data;
 					testBST.Insert(data);
-					break;		
+					break;
 				case '-':
 					cin >> data;
 					testBST.Remove(data);
 					break;
-				
+
 				case '@':
 					cout <<"Result:";
 					temp = testBST.AtCursor();
@@ -69,7 +69,7 @@ int main(){
 				case 'C':
 					testBST.ClearList();
 					break;
-					
+
 				case 'e':
 				case 'E':
 					if (testBST.Empty())
@@ -141,12 +141,12 @@ void PrintMenu(){
     cout << "  E   : Empty list?" << endl;
     cout << "  !   : Test copy constructor" << endl;
     cout << "  #   : Test assignment operator, ClearList must work first before testing" << endl;
-    
+
     cout << "  ?x  : Search rest of list for x " << endl;
 	cout << "  I   : Print the List InOrder" << endl;
 	cout << "  R   : Print the List PreOrder" << endl;
 	cout << "  O   : Print the List PostOrder" << endl;
     cout << "  Q   : Quit the test program" << endl;
     cout << endl << endl << endl;
-	
+
 }

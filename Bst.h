@@ -7,7 +7,7 @@ class BNode{
 	BNode* right;
 	BNode();
 	BNode(int);
-	BNode(int, BNode*, BNode*);	
+	BNode(int, BNode*, BNode*);
 	friend class BST;
 public:
 	int GetData()const;
@@ -16,12 +16,12 @@ public:
 class BST{
 	BNode* root;
 	BNode* cursor;
-	bool InsertHelp(int e, BNode*&); 
+	bool InsertHelp(int e, BNode*&);
 	void PrintInHelp(ostream& os, BNode* n);
 	void PrintPreHelp(ostream& os, BNode* n);
 	void PrintPostHelp(ostream& os, BNode* n);
-	BNode* FindHelp(int e, BNode*n); 
-	bool RemoveHelp(int e, BNode*&); 
+	BNode* FindHelp(int e, BNode*n);
+	bool RemoveHelp(int e, BNode*&);
 	//Feel free to add Helper routines if you need them here
 public:
 	BST();
@@ -33,7 +33,7 @@ public:
 	void PrintPre(ostream&);
 	void PrintPost(ostream&);
 	void PrintIn(ostream&);
-	BNode* Find(int e);//cursor at located node or rightmost node	
+	BNode* Find(int e);//cursor at located node or rightmost node
 	BNode* AtCursor()const;
 	void GoToBeginning();
 	void GoToEnd();
