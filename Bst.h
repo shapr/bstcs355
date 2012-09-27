@@ -20,6 +20,7 @@ class BST{
 	void PrintInHelp(ostream& os, BNode* n);
 	void PrintPreHelp(ostream& os, BNode* n);
 	void PrintPostHelp(ostream& os, BNode* n);
+    void ClearListHelper(BNode* n);
 	BNode* FindHelp(int e, BNode*n);
 	bool RemoveHelp(int e, BNode*&);
 	//Feel free to add Helper routines if you need them here

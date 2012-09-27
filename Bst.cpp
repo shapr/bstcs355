@@ -27,6 +27,18 @@ BST::BST() {
   cursor = NULL;
 }
 
+BST::~BST() {
+  ClearListHelper(root);
+}
+
+void BST::ClearListHelper(BNode * n){
+  // delete down the left branch
+  if (n->left) ClearListHelper(n->left);
+  // delete down the right branch
+  if (n->right) ClearListHelper(n->right);
+  delete n; // delete this node
+}
+
 bool BST::Insert(int e) {
   if (root == NULL){
     BNode * nn = new BNode(e); // BNode is type;	Declaring new value.
