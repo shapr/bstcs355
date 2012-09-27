@@ -28,6 +28,10 @@ BST::BST() {
 }
 
 BST::~BST() {
+  ClearList();
+}
+
+void BST::ClearList(){
   ClearListHelper(root);
 }
 
@@ -61,6 +65,7 @@ bool BST::Insert(int e) {
 }
 
 bool BST::InsertHelp(int e, BNode *&n) {
+  cout << "InsertHelp got " << e << endl;
   BNode * next;
   if (e < n->data) {
     next = n->left; // check left side
@@ -80,12 +85,22 @@ bool BST::InsertHelp(int e, BNode *&n) {
   }
 }
 
+void BST::PrintIn(ostream& oss){
+  PrintInHelp(oss, root);
+}
+
 void BST::PrintInHelp(ostream & oss, BNode * n){
-  if (n->left) PrintInHelp(oss, n->left);
+  cout << "entered PrintInHelp, node holds " << n->data << " left is " << n->left << " right is " << n->right << endl;
+  if (n->left != NULL) PrintInHelp(oss, n->left);
   // any left legs have been printed
-  oss << n->GetData(); // Print itself
-  if (n->right) PrintInHelp(oss, n->right);
+  cout << "printed left branches\n";
+  oss << n->data << endl; // Print itself
+  if (n->right != NULL) PrintInHelp(oss, n->right);
+  cout << "printed right branches\n";
   // return oss;
 }
 
-
+bool BST::Empty()const {
+  if (root) return false;
+  return true;
+}
