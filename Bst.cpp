@@ -65,7 +65,9 @@ bool BST::Insert(int e) {
 }
 
 bool BST::InsertHelp(int e, BNode *&n) {
+#ifdef DEBUG
   cout << "InsertHelp got " << e << endl;
+#endif
   BNode * next;
   if (e < n->data) {
     next = n->left; // check left side
@@ -91,13 +93,13 @@ void BST::PrintIn(ostream& oss){
 }
 
 void BST::PrintInHelp(ostream & oss, BNode * n){
+#ifdef DEBUG
   cout << "entered PrintInHelp, node holds " << n->data << " left is " << n->left << " right is " << n->right << endl;
+#endif
   if (n->left != NULL) PrintInHelp(oss, n->left);
   // any left legs have been printed
-  cout << "printed left branches\n";
   oss << n->data << endl; // Print itself
   if (n->right != NULL) PrintInHelp(oss, n->right);
-  cout << "printed right branches\n";
   // return oss;
 }
 
