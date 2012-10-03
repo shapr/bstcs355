@@ -143,7 +143,7 @@ void BST::GoToBeginning() {
   cursor = n;
 }
 
-void BST::GoToBeginning() {
+void BST::GoToEnd() {
   BNode * n = root;
   while (n->right != NULL) {
     n = n->right;
