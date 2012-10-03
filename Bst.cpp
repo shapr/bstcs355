@@ -163,3 +163,7 @@ void BST::FindHelper(int e, BNode * current){
   if (e < current->data) FindHelper(e, current->left);
   if (e > current->data) FindHelper(e, current->right);
 }
+
+BNode * BST::AtCursor()const {
+  return cursor;
+}

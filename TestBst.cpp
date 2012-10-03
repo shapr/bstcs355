@@ -7,7 +7,6 @@ int main() {
 
   BST testBST;
   int data;
-<<<<<<< HEAD
   cout << "inserting 20\n";
   testBST.Insert(20);
   cout << "inserting 15\n";
@@ -31,6 +30,6 @@ int main() {
   testBST.PrintPre(cout);
 
   cout << "calling Find(15)\n";
-  testBST.Find(15);
-  // test this with atCursor when it works
+  BNode * found = testBST.Find(15);
+  cout << "found " << (*found).GetData() << endl;
 }
