@@ -151,6 +151,21 @@ void BST::GoToEnd() {
   cursor = n;
 }
 
+<<<<<<< HEAD
+=======
+/*void BST::ClearListHelper(BNode* n) // We had it already previously in the code up top, I just didn't see it.
+{
+    if(n == NULL) 
+        return;  // Nothing
+    if(n->left != NULL) 
+        ClearListHelper(n->left); // Clear left sub-tree
+    if(n->right != NULL) 
+        ClearListHelper(n->right); // Clear right sub-tree
+    delete n;    // Destroy this node
+    
+    return;
+}*/
+>>>>>>> We already had it in the code up top, I didn't see it was already done
 
 BNode * BST::Find(int e) {
   FindHelper(e, root);
