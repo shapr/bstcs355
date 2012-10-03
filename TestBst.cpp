@@ -29,7 +29,7 @@ int main() {
   cout << "calling PrintPre\n";
   testBST.PrintPre(cout);
 
-  cout << "calling Find(15)\n";
-  BNode * found = testBST.Find(15);
+  cout << "calling Find(4)\n";
+  BNode * found = testBST.Find(4);
   cout << "found " << (*found).GetData() << endl;
 }

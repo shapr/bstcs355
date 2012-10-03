@@ -36,7 +36,6 @@ public:
 	void PrintPost(ostream&);// - done ********
 	void PrintIn(ostream&); // - done ********
 	BNode* Find(int e);//cursor at located node or rightmost node
-    void FindHelper(int e, BNode * current);
 	BNode* AtCursor()const; 
 	void GoToBeginning(); // - done ********
 	void GoToEnd(); // - done ********
