@@ -135,3 +135,18 @@ bool BST::Empty()const {
   return true;
 }
 
+void BST::GoToBeginning() {
+  BNode * n = root;
+  while (n->left != NULL) {
+    n = n->left;
+  }
+  cursor = n;
+}
+
+void BST::GoToBeginning() {
+  BNode * n = root;
+  while (n->right != NULL) {
+    n = n->right;
+  }
+  cursor = n;
+}
