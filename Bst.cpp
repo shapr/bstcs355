@@ -159,6 +159,7 @@ BNode * BST::Find(int e) {
 void BST::FindHelper(int e, BNode * current){
   if (current == NULL) {
     GoToEnd(); // catches the null case
+	cout << "Did not find. Returning end node" << endl;
     return;
   }
   if (e == current->data) cursor = current;
