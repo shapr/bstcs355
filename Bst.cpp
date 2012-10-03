@@ -150,3 +150,18 @@ void BST::GoToEnd() {
   }
   cursor = n;
 }
+
+void BST::ClearListHelper(BNode* n)
+{
+    if(n == NULL) 
+        return;  // Nothing
+    if(n->left != NULL) 
+        ClearListHelper(n->left); // Clear left sub-tree
+    if(n->right != NULL) 
+        ClearListHelper(n->right); // Clear right sub-tree
+    delete n;    // Destroy this node
+    
+    return;
+}
+
+
