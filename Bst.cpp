@@ -151,7 +151,6 @@ void BST::GoToEnd() {
   cursor = n;
 }
 
-
 BNode * BST::Find(int e) {
   FindHelper(e, root);
   return cursor;
