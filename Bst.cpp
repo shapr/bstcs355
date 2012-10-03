@@ -150,3 +150,16 @@ void BST::GoToEnd() {
   }
   cursor = n;
 }
+
+
+BNode * BST::Find(int e) {
+  FindHelper(e, root);
+  return cursor;
+}
+
+void BST::FindHelper(int e, BNode * current){
+  if (current == NULL) GoToEnd(); // catches the null case
+  if (e == current->data) cursor = current;
+  if (e < current->data) FindHelper(e, current->left);
+  if (e > current->data) FindHelper(e, current->right);
+}

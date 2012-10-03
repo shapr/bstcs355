@@ -29,4 +29,8 @@ int main() {
   testBST.PrintPost(cout);
   cout << "calling PrintPre\n";
   testBST.PrintPre(cout);
+
+  cout << "calling Find(15)\n";
+  testBST.Find(15);
+  // test this with atCursor when it works
 }
