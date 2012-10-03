@@ -18,8 +18,8 @@ class BST{
 	BNode* cursor;
 	bool InsertHelp(int e, BNode*&); // - done ********
 	void PrintInHelp(ostream& os, BNode* n); // - done ********
-	void PrintPreHelp(ostream& os, BNode* n);
-	void PrintPostHelp(ostream& os, BNode* n);
+	void PrintPreHelp(ostream& os, BNode* n); // - done ********
+	void PrintPostHelp(ostream& os, BNode* n); // - done ********
     void ClearListHelper(BNode* n);
 	BNode* FindHelp(int e, BNode*n);
 	bool RemoveHelp(int e, BNode*&);
@@ -31,15 +31,15 @@ public:
 	BST& operator=(const BST&);
 	bool Insert(int e);//cursor at insertion point // - done ********
 	bool Remove(int e);//cursor at parent of removed item or at root
-	void PrintPre(ostream&);
-	void PrintPost(ostream&);
-	void PrintIn(ostream&);
+	void PrintPre(ostream&); // - done ********
+	void PrintPost(ostream&);// - done ********
+	void PrintIn(ostream&); // - done ********
 	BNode* Find(int e);//cursor at located node or rightmost node
-	BNode* AtCursor()const;
+	BNode* AtCursor()const; 
 	void GoToBeginning();
 	void GoToEnd();
 	void GoToNext();
-	void GoToPrev();
+	void GoToPrev(); 
 	void ClearList(); // - done ********
 	void CopyList();// to be called by copy constructor and assignment
 	bool Empty()const;

@@ -48,6 +48,7 @@ bool BST::Insert(int e) {
     BNode * nn = new BNode(e); // BNode is type;	Declaring new value.
     // nn = new BNode(e);
     root = nn;
+    cursor = nn;
     return true;
   }
   return InsertHelp(e, root);
@@ -71,6 +72,7 @@ bool BST::InsertHelp(int e, BNode *&n) {
   BNode * next;
   if (e < n->data) {
     next = n->left; // check left side
+      cursor = n->left;
   }
   else {
     next = n->right; // Check right side
@@ -81,6 +83,7 @@ bool BST::InsertHelp(int e, BNode *&n) {
     BNode * nn = new BNode(e); // new returns a pointer
     if (e < n->data) n->left = nn;
     else n->right = nn;
+      cursor = n->right;
     return true;
   }
   else {
