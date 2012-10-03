@@ -165,7 +165,6 @@ void BST::GoToEnd() {
     
     return;
 }*/
->>>>>>> We already had it in the code up top, I didn't see it was already done
 
 BNode * BST::Find(int e) {
   FindHelper(e, root);
