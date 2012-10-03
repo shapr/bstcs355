@@ -4,8 +4,10 @@
 using namespace std;
 
 int main() {
+
   BST testBST;
   int data;
+<<<<<<< HEAD
   cout << "inserting 20\n";
   testBST.Insert(20);
   cout << "inserting 15\n";

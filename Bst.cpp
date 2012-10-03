@@ -131,3 +131,5 @@ bool BST::Empty()const {
   if (root) return false;
   return true;
 }
+
+
