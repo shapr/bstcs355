@@ -36,9 +36,9 @@ public:
 	void PrintIn(ostream&); // - done ********
 	BNode* Find(int e);//cursor at located node or rightmost node
 	BNode* AtCursor()const; 
-	void GoToBeginning();
-	void GoToEnd();
-	void GoToNext();
+	void GoToBeginning(); // - done ********
+	void GoToEnd(); // - done ********
+	void GoToNext(); 
 	void GoToPrev(); 
 	void ClearList(); // - done ********
 	void CopyList();// to be called by copy constructor and assignment
