@@ -368,15 +368,24 @@ int BST::RemoveHelp(int e)
 */
 
  /*
+
 void BST::GoToNext(){
 	GoToNextHelper(root);
 
 }
 
 void BST::GoToNextHelper(current){
-	if(cursor->right !=NULL)
-		cursor = cursor->right;
-	else if(cursor->right == NULL)
-		GoToNextHelper(root);
+	if(cursor < current){
+		if(cursor->right !=NULL)
+			cursor = cursor->right;
+		else if(cursor->right == NULL){
+			if(current->left > cursor)
+				cursor = cuurent->left;
+			else if(root->left < cursor)
+				cursor = current;
+		}
+	}
+	else if(cursor > current)
 
+}
  */
