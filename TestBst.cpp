@@ -39,11 +39,23 @@ int main() {
   cout << "Should return 5? " << testBST.getParent(testBST.Find(6))->GetData() << endl;
 
   testBST.PrintIn(cout);
-  // test Remove
+  // test Remove with zero children
   testBST.Remove(6);
   cout << "Removed 6\n";
   testBST.PrintIn(cout);
   testBST.Remove(5);
   cout << "Removed 5\n";
   testBST.PrintIn(cout);
+
+  cout << "clearing List for further tests\n";
+  testBST.ClearList();
+  testBST.Insert(5);
+  testBST.Insert(6);
+  testBST.Insert(7);
+  testBST.PrintIn(cout);
+  // test Remove with one child
+  testBST.Remove(6);
+  cout << "Removed 6\n";
+  testBST.PrintIn(cout);
+  cout << "5 should now link to 7\n";
 }

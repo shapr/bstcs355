@@ -196,11 +196,29 @@ bool BST::Remove(int e){
     }
   }
 
+  int children = 0; // this is ugly
+  BNode * child;
+  if(d->left != NULL) {
+    children++;
+    child = d->left;
+  }
+  if(d->right != NULL) {
+    children++;
+    child = d->right;
+  }
+  if(children == 1) {   // has only one child
+    // delete node, replace with its one child
+    BNode * parent = getParent(d);
+    if(parent->left == d) parent->left = child;
+    if(parent->right == d) parent->right = child;
+    delete d;
+  }
 }
 BNode * BST::getParent(BNode * child){
   if (child == root) return NULL;
   return getParentHelp(child, root);
 }
+
 /*
   got handed node, if this node has pointer to the object of search, return THIS node.
   if not, call ourself with the children
