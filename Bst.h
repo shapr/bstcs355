@@ -41,7 +41,7 @@ public:
 	void GoToBeginning(); // - done ********
 	void GoToEnd(); // - done ********
     void GoToNext();
-	void GoToNextHelper(Bnode * current);
+	void GoToNextHelper(BNode * current);
     void GoToPrev();
 	void ClearList(); // - done ********
 	void CopyList();// to be called by copy constructor and assignment

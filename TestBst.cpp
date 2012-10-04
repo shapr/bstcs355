@@ -58,4 +58,19 @@ int main() {
   cout << "Removed 6\n";
   testBST.PrintIn(cout);
   cout << "5 should now link to 7\n";
+
+  // test remove with two children
+  cout << "Clearing list\n";
+  testBST.ClearList();
+  testBST.Insert(20);
+  testBST.Insert(15);
+  testBST.Insert(30);
+  testBST.Insert(5);
+  testBST.Insert(18);
+  testBST.Insert(40);
+  testBST.Insert(25);
+  cout << "Tree is now:\n";
+  testBST.PrintIn(cout);
+  cout << "Removing 30\n";
+  testBST.Remove(30);
 }

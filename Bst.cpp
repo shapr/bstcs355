@@ -213,7 +213,29 @@ bool BST::Remove(int e){
     if(parent->right == d) parent->right = child;
     delete d;
   }
+  /* node to delete has two children
+     swap value with left-most child of right subtree (in-order successor)
+     in-order successor node will have zero or one children,
+     delete swapped value according to simpler cases above
+  */
+  BNode * succ = d->right; // follow branch to the right once
+  cout << "succ after one step right has value " << d->data << endl;
+  while(succ->left != NULL) { // follow branches all the way to the left
+    succ = succ->left;
+  }
+#ifdef DEBUG
+  cout << "delete node with two children should now have traversed to in-order successor\n";
+  cout << "traversed from" << d->data << " to " << succ->data << endl;
+#endif
+  // swap the two integer values
+  int tmp = d->data;
+  d->data = succ->data;
+  succ->data = d->data;
+  // delete the node that has one or two children
+  return Remove(succ->data);
 }
+
+
 BNode * BST::getParent(BNode * child){
   if (child == root) return NULL;
   return getParentHelp(child, root);
@@ -345,9 +367,10 @@ int BST::RemoveHelp(int e)
 }
 */
 
+ /*
 void BST::GoToNext(){
 	GoToNextHelper(root);
-	
+
 }
 
 void BST::GoToNextHelper(current){
@@ -355,6 +378,5 @@ void BST::GoToNextHelper(current){
 		cursor = cursor->right;
 	else if(cursor->right == NULL)
 		GoToNextHelper(root);
-	
 
-
+ */
