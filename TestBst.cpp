@@ -34,5 +34,7 @@ int main() {
 
   testBST.ClearList();
   cout << "Cleared list, is it empty? " << testBST.Empty() << endl;
-
+  testBST.Insert(5);
+  testBST.Insert(6);
+  cout << "Should return 5? " << testBST.getParent(testBST.Find(6))->GetData() << endl;
 }
