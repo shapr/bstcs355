@@ -94,7 +94,7 @@ void BST::PrintInHelp(ostream & oss, BNode * n){
   cout << "entered PrintInHelp, node holds " << n->data << " left is " << n->left << " right is " << n->right << endl;
 #endif
   if (n->left != NULL) PrintInHelp(oss, n->left);   // any left legs have been printed
-  oss << n->data << endl; // Print itself
+	oss << n->data << "	"; // Print itself
   if (n->right != NULL) PrintInHelp(oss, n->right); // print right legs
 }
 
@@ -161,7 +161,7 @@ BNode * BST::Find(int e) {
 void BST::FindHelper(int e, BNode * current){
   if (current == NULL) {
     GoToEnd(); // catches the null case
-	cout << "Did not find. Returning end node" << endl;
+	cursor = NULL;
     return;
   }
   if (e == current->data) cursor = current;
