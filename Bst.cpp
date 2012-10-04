@@ -32,7 +32,7 @@ BST::~BST() {
 }
 
 void BST::ClearList(){
-  ClearListHelper(root);
+  if (root != NULL) ClearListHelper(root);
   root = NULL;
 }
 
@@ -47,23 +47,12 @@ void BST::ClearListHelper(BNode * n){
 bool BST::Insert(int e) {
   if (root == NULL){
     BNode * nn = new BNode(e); // BNode is type;	Declaring new value.
-    // nn = new BNode(e);
     root = nn;
     cursor = nn;
     return true;
   }
   return InsertHelp(e, root);
 
-  /*if (e < root->data)
-  // We need to check left
-  if (root->left == NULL){
-  BNode ln;
-  ln = new BNode(e);
-  root->left = &ln;
-  return true;
-  }
-  else
-  root->left */
 }
 
 bool BST::InsertHelp(int e, BNode *&n) {

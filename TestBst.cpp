@@ -32,7 +32,6 @@ int main() {
   BNode * found = testBST.Find(4);
   cout << "found " << (*found).GetData() << endl;
 
-  // why does this cause a segfault at the end of the program?!
   testBST.ClearList();
   cout << "Cleared list, is it empty? " << testBST.Empty() << endl;
 
