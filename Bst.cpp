@@ -82,6 +82,10 @@ bool BST::InsertHelp(int e, BNode *&n) {
 }
 
 void BST::PrintIn(ostream& oss){
+  if(root == NULL) {
+    cout << "root is NULL, nothing to print\n";
+    return;
+  }
   PrintInHelp(oss, root);
 }
 
@@ -95,6 +99,10 @@ void BST::PrintInHelp(ostream & oss, BNode * n){
 }
 
 void BST::PrintPost(ostream& oss){
+  if(root == NULL) {
+    cout << "root is NULL, nothing to print\n";
+    return;
+  }
   PrintPostHelp(oss, root);
 }
 
@@ -108,6 +116,10 @@ void BST::PrintPostHelp(ostream & oss, BNode * n){
 }
 
 void BST::PrintPre(ostream& oss){
+  if(root == NULL) {
+    cout << "root is NULL, nothing to print\n";
+    return;
+  }
   PrintPreHelp(oss, root);
 }
 
@@ -160,13 +172,31 @@ void BST::FindHelper(int e, BNode * current){
 BNode * BST::AtCursor()const {
   return cursor;
 }
-/*
-int BST::Remove(int e){
+
+bool BST::Remove(int e){
   BNode * d = Find(e); // get a pointer to the node
+  // BNode * parent = getParent(d);
+
   // node has no children, remove from tree
+  if (d->left == NULL && d->right == NULL) {
+    if (d == root) {
+      delete d;
+      root = NULL;
+    } else {
+      BNode * parent = getParent(d);
+      if (parent->left == d) {
+        parent->left = NULL;
+        delete d;
+        return true;
+      } else {
+        parent->right = NULL;
+        delete d;
+        return true;
+      }
+    }
+  }
 
 }
-*/
 BNode * BST::getParent(BNode * child){
   if (child == root) return NULL;
   return getParentHelp(child, root);

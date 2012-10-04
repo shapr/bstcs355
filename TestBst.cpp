@@ -37,4 +37,13 @@ int main() {
   testBST.Insert(5);
   testBST.Insert(6);
   cout << "Should return 5? " << testBST.getParent(testBST.Find(6))->GetData() << endl;
+
+  testBST.PrintIn(cout);
+  // test Remove
+  testBST.Remove(6);
+  cout << "Removed 6\n";
+  testBST.PrintIn(cout);
+  testBST.Remove(5);
+  cout << "Removed 5\n";
+  testBST.PrintIn(cout);
 }
