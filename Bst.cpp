@@ -344,3 +344,17 @@ int BST::RemoveHelp(int e)
     }
 }
 */
+
+void BST::GoToNext(){
+	GoToNextHelper(root);
+	
+}
+
+void BST::GoToNextHelper(current){
+	if(cursor->right !=NULL)
+		cursor = cursor->right;
+	else if(cursor->right == NULL)
+		GoToNextHelper(root);
+	
+
+
