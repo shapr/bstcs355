@@ -6,7 +6,6 @@ using namespace std;
 int main() {
 
   BST testBST;
-  int data;
   cout << "inserting 20\n";
   testBST.Insert(20);
   cout << "inserting 15\n";
@@ -32,4 +31,9 @@ int main() {
   cout << "calling Find(4)\n";
   BNode * found = testBST.Find(4);
   cout << "found " << (*found).GetData() << endl;
+
+  // why does this cause a segfault at the end of the program?!
+  testBST.ClearList();
+  cout << "Cleared list, is it empty? " << testBST.Empty() << endl;
+
 }

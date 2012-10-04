@@ -24,6 +24,8 @@ class BST{
 	BNode* FindHelp(int e, BNode*n); // - done ********
     void FindHelper(int e, BNode * current); // - done ********
     bool RemoveHelp(int e, BNode*&);
+    BNode * getParent(BNode * child);
+    BNode * getParentHelp(BNode * child,BNode * current);
 	//Feel free to add Helper routines if you need them here
 public:
 	BST(); // - done ********
@@ -39,8 +41,8 @@ public:
 	BNode* AtCursor()const; // - done ********
 	void GoToBeginning(); // - done ********
 	void GoToEnd(); // - done ********
-    void GoToNext(); 
-    void GoToPrev(); 
+    void GoToNext();
+    void GoToPrev();
 	void ClearList(); // - done ********
 	void CopyList();// to be called by copy constructor and assignment
 	bool Empty()const; // - done ********

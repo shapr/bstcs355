@@ -7,7 +7,7 @@ CXXFLAGS = -pedantic -Wno-long-long -Wno-missing-field-initializers -Wall -W -Wu
 
 .PHONY: all
 
-all: Bst.o BST_Driver TestBst # fraction.o fracmain
+all: Bst.o TestBst # BST_Driver
 
 # abstractarray absary
 

@@ -33,13 +33,14 @@ BST::~BST() {
 
 void BST::ClearList(){
   ClearListHelper(root);
+  root = NULL;
 }
 
 void BST::ClearListHelper(BNode * n){
   // delete down the left branch
-  if (n->left) ClearListHelper(n->left);
+  if (n->left != NULL) ClearListHelper(n->left);
   // delete down the right branch
-  if (n->right) ClearListHelper(n->right);
+  if (n->right != NULL) ClearListHelper(n->right);
   delete n; // delete this node
 }
 
@@ -131,7 +132,7 @@ void BST::PrintPreHelp(ostream & oss, BNode * n){
 }
 
 bool BST::Empty()const {
-  if (root) return false;
+  if (root != NULL) return false;
   return true;
 }
 
@@ -170,18 +171,46 @@ void BST::FindHelper(int e, BNode * current){
 BNode * BST::AtCursor()const {
   return cursor;
 }
+/*
+int BST::Remove(int e){
+  BNode * d = Find(e); // get a pointer to the node
+  // node has no children, remove from tree
 
+}
+*/
+BNode * BST::getParent(BNode * child){
+  if (child == root) return NULL;
+  return getParentHelp(child, root);
+}
+/*
+  got handed node, if this node has pointer to the object of search, return THIS node.
+  if not, call ourself with the children
+  if no children, return NULL pointer.
+ */
+BNode* BST::getParentHelp(BNode * child,BNode * current){
+#ifdef DEBUG
+  cout << "entered getParentHelp, node holds " << n->data << " left is " << n->left << " right is " << n->right << endl;
+#endif
+  if(current->left == child) return current; // check this node
+  if(current->right == child) return current; // check this node
+  BNode * found;
+  if ( (found = getParentHelp(child, current->left)) ) return found; // recursively search left branches
+  if ( (found = getParentHelp(child, current->right)) ) return found; // recursively search right branches
+  return NULL;
+}
+
+/*
 int BST::RemoveHelp(int e)
 {
     BNode *back;
     BNode *temp;
     BNode *delParent;    // Parent of node to delete
     BNode *delNode;      // Node to delete
-    
+
     temp = root;
     back = NULL;
-    
-    // Find the node to delete 
+
+    // Find the node to delete
     while((temp != NULL) && (e != temp->e))
     {
         back = temp;
@@ -190,30 +219,30 @@ int BST::RemoveHelp(int e)
         else
             temp = temp->right;
     }
-    
-    if(temp == NULL) // Didn't find the one to delete 
+
+    if(temp == NULL) // Didn't find the one to delete
     {
         cout << "Key not found. Nothing deleted.\n";
         return false;
     }
     else
     {
-        if(temp == root) // Deleting the root 
+        if(temp == root) // Deleting the root
         {
             delNode = root;
-            delParent = NULL; 
-        }                
+            delParent = NULL;
+        }
         else
         {
             delNode = temp;
             delParent = back;
         }
     }
-    
-    // Case 1: Deleting node with no children or one child 
+
+    // Case 1: Deleting node with no children or one child
     if(delNode->right == NULL)
     {
-        if(delParent == NULL)    // If deleting the root    
+        if(delParent == NULL)    // If deleting the root
         {
             root = delNode->left;
             delete delNode;
@@ -229,11 +258,11 @@ int BST::RemoveHelp(int e)
             return true;
         }
     }
-    else // There is at least one child 
+    else // There is at least one child
     {
         if(delNode->left == NULL)    // Only 1 child and it is on the right
         {
-            if(delParent == NULL)    // If deleting the root    
+            if(delParent == NULL)    // If deleting the root
             {
                 root = delNode->right;
                 delete delNode;
@@ -249,11 +278,11 @@ int BST::RemoveHelp(int e)
                 return true;
             }
         }
-        else // Case 2: Deleting node with two children 
+        else // Case 2: Deleting node with two children
         {
-            // Find the replacement value.  Locate the node  
-            // containing the largest value smaller than the 
-            // key of the node being deleted.                
+            // Find the replacement value.  Locate the node
+            // containing the largest value smaller than the
+            // key of the node being deleted.
             temp = delNode->left;
             back = delNode;
             while(temp->right != NULL)
@@ -261,13 +290,13 @@ int BST::RemoveHelp(int e)
                 back = temp;
                 temp = temp->right;
             }
-            // Copy the replacement values into the node to be deleted 
+            // Copy the replacement values into the node to be deleted
             delNode->Key = temp->Key;
             delNode->fValue = temp->fValue;
             delNode->iValue = temp->iValue;
             strcpy(delNode->cArray, temp->cArray);
-            
-            // Remove the replacement node from the tree 
+
+            // Remove the replacement node from the tree
             if(back == delNode)
                 back->left = temp->left;
             else
@@ -277,3 +306,4 @@ int BST::RemoveHelp(int e)
         }
     }
 }
+*/
