@@ -408,3 +408,24 @@ BST& BST::operator=(const BST& Ftree){
     return *this;
     
 }
+/*
+BNode * BST::getParent(BNode * child){
+    
+BNode * temp; // Create temp Node
+temp = root; // Set temp = root for start
+ 
+if (child == temp || child == temp->left || child == temp->right)
+return temp;
+
+do { if (child == temp->left || child == temp->right) // If child the number is left or right
+        return temp;
+    
+    if (child->data < temp->data && temp->right != child) // If the child number less than temp and to the right is not the child
+        temp = temp->left;      
+        
+        if (child->data > temp->data && temp->right != child) // If it is greater than return right
+            temp = temp->right;
+            } while (temp->left != child || temp->right != child);
+return temp;
+}
+*/

@@ -46,7 +46,7 @@ public:
     void GoToNext();
 	void GoToNextHelper(BNode * current);
     void GoToPrev();
-    BNode * getParent(BNode * child);
+    BNode * getParent(BNode * child); // CHECK_______________ I just toyed with it and left it commented out
     BST& operator=(const BST&); // CHECK____________________
     void CopyList(BNode*);// to be called by copy constructor and assignment CHECK_________________________
 
