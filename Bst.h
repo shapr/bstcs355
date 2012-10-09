@@ -30,7 +30,7 @@ public:
 	BST(); // - done ********
 	BST(const BST&); // copy constructor
 	~BST(); // destructor // - done ********
-    BST& operator=(const BST&);
+    BST& operator=(const BST&); // CHECK____________________
 	bool Insert(int e);//cursor at insertion point // - done ********
     bool Remove(int e);//cursor at parent of removed item or at root
 	void PrintPre(ostream&); // - done ********
@@ -44,7 +44,7 @@ public:
 	void GoToNextHelper(BNode * current);
     void GoToPrev();
 	void ClearList(); // - done ********
-	void CopyList();// to be called by copy constructor and assignment
+	void CopyList(BNode*);// to be called by copy constructor and assignment CHECK_________________________
 	bool Empty()const; // - done ********
     BNode * getParent(BNode * child);
 
