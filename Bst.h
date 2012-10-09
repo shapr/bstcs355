@@ -23,16 +23,18 @@ class BST{
     void ClearListHelper(BNode* n); // - done ********
 	BNode* FindHelp(int e, BNode*n); // - done ********
     void FindHelper(int e, BNode * current); // - done ********
+    BNode * getParentHelp(BNode * child,BNode * current); // - done ********
+    
     bool RemoveHelp(int e, BNode*&);
-    BNode * getParentHelp(BNode * child,BNode * current);
+    
 	//Feel free to add Helper routines if you need them here
 public:
 	BST(); // - done ********
 	BST(const BST&); // copy constructor
 	~BST(); // destructor // - done ********
-    BST& operator=(const BST&); // CHECK____________________
+    
 	bool Insert(int e);//cursor at insertion point // - done ********
-    bool Remove(int e);//cursor at parent of removed item or at root
+    bool Remove(int e);//cursor at parent of removed item or at root // - done ********
 	void PrintPre(ostream&); // - done ********
 	void PrintPost(ostream&);// - done ********
 	void PrintIn(ostream&); // - done ********
@@ -40,12 +42,18 @@ public:
 	BNode* AtCursor()const; // - done ********
 	void GoToBeginning(); // - done ********
 	void GoToEnd(); // - done ********
+    
     void GoToNext();
 	void GoToNextHelper(BNode * current);
     void GoToPrev();
-	void ClearList(); // - done ********
-	void CopyList(BNode*);// to be called by copy constructor and assignment CHECK_________________________
-	bool Empty()const; // - done ********
     BNode * getParent(BNode * child);
+    BST& operator=(const BST&); // CHECK____________________
+    void CopyList(BNode*);// to be called by copy constructor and assignment CHECK_________________________
+
+    
+	void ClearList(); // - done ********
+	bool Empty()const; // - done ********
+    
+    
 
 };
