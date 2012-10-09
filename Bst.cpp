@@ -389,19 +389,22 @@ void BST::GoToNextHelper(current){
 
 }
  */
-void BST::CopyList(BNode* oldNode) {
+void BST::CopyList(BNode* previousNode) {
     
-	Insert(oldNode->data);
-	if (oldNode->left != NULL)
-		CopyList(oldNode->left);
-	if (oldNode->right != NULL)
-		CopyList(oldNode->right);
+	Insert(previousNode->data);
+    
+	if (previousNode->left != NULL)
+		CopyList(previousNode->left);
+    
+	if (previousNode->right != NULL)
+		CopyList(previousNode->right);
 }
 BST& BST::operator=(const BST& Ftree){
     
     ClearList();
     
-    CopyList(Ftree.root)
+    CopyList(Ftree.root) // Ftree = First Tree
+    
     return *this;
     
 }
