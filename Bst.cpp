@@ -56,13 +56,12 @@ bool BST::Insert(int e) {
 }
 
 bool BST::InsertHelp(int e, BNode *&n) {
-#ifdef DEBUG
+	#ifdef DEBUG
   cout << "InsertHelp got " << e << endl;
 #endif
   BNode * next;
   if (e < n->data) {
     next = n->left; // check left side
-      cursor = n->left;
   }
   else {
     next = n->right; // Check right side
@@ -71,9 +70,10 @@ bool BST::InsertHelp(int e, BNode *&n) {
   if (next == NULL) {
     // Creating a New node
     BNode * nn = new BNode(e); // new returns a pointer
-    if (e < n->data) n->left = nn;
+	if (e < n->data){ n->left = nn;
+	}		
     else n->right = nn;
-      cursor = n->right;
+		cursor = nn;
     return true;
   }
   else {
@@ -92,7 +92,10 @@ void BST::PrintIn(ostream& oss){
 void BST::PrintInHelp(ostream & oss, BNode * n){
 
   if (n->left != NULL) PrintInHelp(oss, n->left);   // any left legs have been printed
-  oss << n->data << "	"; // Print itself
+	if(n->data == cursor->data)
+  oss << "[" <<  n->data << "]" << " "; // Print itself
+	else
+		oss << n->data << " ";
 #ifdef DEBUG
   cout << "entered printInHelp node value is " << n->data << " left is " << n->left << " right is " << n->right;
 #endif
@@ -113,7 +116,10 @@ void BST::PrintPostHelp(ostream & oss, BNode * n){
 #endif
   if (n->left != NULL) PrintPostHelp(oss, n->left); // recursively print left branches
   if (n->right != NULL) PrintPostHelp(oss, n->right); // recursively print right branches
-  oss << n->data << "	"; // Print itself
+	if(n->data == cursor->data)
+  oss << "[" <<  n->data << "]" << " "; // Print itself
+	else
+		oss << n->data << " ";
 }
 
 void BST::PrintPre(ostream& oss){
@@ -128,7 +134,10 @@ void BST::PrintPreHelp(ostream & oss, BNode * n){
 #ifdef DEBUG
   cout << "entered PrintPreHelp, node holds " << n->data << " left is " << n->left << " right is " << n->right << endl;
 #endif
-  oss << n->data << "	"; // Print itself
+  if(n->data == cursor->data)
+  oss << "[" <<  n->data << "]" << " "; // Print itself
+	else
+		oss << n->data << " ";
   if (n->left != NULL) PrintPreHelp(oss, n->left); // recursively print left branches
   if (n->right != NULL) PrintPreHelp(oss, n->right); // recursively print right branches
 }
