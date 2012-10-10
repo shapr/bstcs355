@@ -96,7 +96,6 @@ int main(){
 						cout << "Result:" << data << "\tfound" << endl;
 					else
 						cout << "Result:" << data << "\tnot found" << endl;
-						testBST.GoToEnd();
 					break;
 				case 'i':
 				case 'I':

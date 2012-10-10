@@ -175,7 +175,12 @@ void BST::GoToEnd() {
 
 BNode * BST::Find(int e) {
   FindHelper(e, root);
-  return cursor;
+  if(cursor == NULL){
+	  GoToEnd();
+  return NULL;
+  }
+  else
+	  return cursor;
 }
 
 void BST::FindHelper(int e, BNode * current){
