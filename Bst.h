@@ -30,7 +30,7 @@ class BST{
 	//Feel free to add Helper routines if you need them here
 public:
 	BST(); // - done ********
-	//BST(const BST&); // copy constructor
+	BST(const BST&); // copy constructor
 	~BST(); // destructor // - done ********
     
 	bool Insert(int e);//cursor at insertion point // - done ********
@@ -47,8 +47,8 @@ public:
 	void GoToNextHelper(BNode * current);
     void GoToPrev();
     BNode * getParent(BNode * child); // CHECK_______________ I just toyed with it and left it commented out
-   // BST& operator=(const BST&); // CHECK____________________
-    void CopyList(BNode*);// to be called by copy constructor and assignment CHECK_________________________
+    BST& operator=(const BST&); //  - done ********
+    void CopyList(BNode*);// to be called by copy constructor and assignment  - done ********
 
     
 	void ClearList(); // - done ********

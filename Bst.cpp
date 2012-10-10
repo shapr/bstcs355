@@ -30,7 +30,11 @@ BST::BST() {
 BST::~BST() {
   ClearList();
 }
-
+BST::BST(const BST& Ftree){
+    root = NULL;
+    cursor = NULL;
+    CopyList(Ftree.root);
+}
 void BST::ClearList(){
   if (root != NULL) ClearListHelper(root);
   root = NULL;
