@@ -202,7 +202,14 @@ BNode * BST::AtCursor()const {
 }
 
 bool BST::Remove(int e){
+  BNode * tmpcursor = cursor; // we want to restore the cursor when we're done
   BNode * d = Find(e); // get a pointer to the node
+  if (d == tmpcursor) { 
+    GoToEnd(); // don't restore cursor to deleted node
+  } else {
+    cursor = tmpcursor;
+  }
+  
   if(d==NULL) return false; // well DUH
   // BNode * parent = getParent(d);
   // cout << "removing " << e << " node has value " << d->data << "branches are " << d->left << " " << d->right << endl;
@@ -230,7 +237,7 @@ bool BST::Remove(int e){
       }
     }
   } else {
-    // cout << "skipped out of zero children\n";
+    // cout << "skipped out of zero children\n"; 
   }
 
   int children = 0; // this is ugly

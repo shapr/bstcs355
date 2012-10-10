@@ -5,6 +5,8 @@
 CXX = g++
 CXXFLAGS = -pedantic -Wno-long-long -Wno-missing-field-initializers -Wall -W -Wundef -Wendif-labels -Wshadow -Wcast-align -Wwrite-strings -Wdisabled-optimization -Wold-style-cast -Woverloaded-virtual -g -pipe -ffor-scope -fno-gnu-keywords
 
+SRCS_CPP = Bst.cpp BST_Driver.cpp
+
 .PHONY: all
 
 all: Bst.o TestBst BST_Driver
@@ -18,3 +20,5 @@ TestBst: Bst.o
 myprogram: abstractarray.o absary.o
 	$(CXX) $+ -o $@
 
+TAGS:   $(SRCS)
+	etags $(SRCS)
