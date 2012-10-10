@@ -425,7 +425,7 @@ void BST::CopyList(BNode* previousNode) {
 	if (previousNode->right != NULL)
 		CopyList(previousNode->right);
 }
-//BST& BST::operator=(const BST& Ftree){
+BST& BST::operator=(const BST& Ftree){
     
     //ClearList();
     
@@ -433,7 +433,7 @@ void BST::CopyList(BNode* previousNode) {
     
     //return *this;
     
-//}
+}
 /*
 BNode * BST::getParent(BNode * child){
     
