@@ -230,7 +230,7 @@ bool BST::Remove(int e){
       }
     }
   } else {
-    cout << "skipped out of zero children\n";
+    // cout << "skipped out of zero children\n";
   }
 
   int children = 0; // this is ugly
@@ -245,10 +245,16 @@ bool BST::Remove(int e){
   }
   if(children == 1) {   // has only one child
     // delete node, replace with its one child
+    if(d == root) {
+      root = child;
+      delete d;
+      return true;
+    }
     BNode * parent = getParent(d);
     if(parent->left == d) parent->left = child;
     if(parent->right == d) parent->right = child;
     delete d;
+    return true;
   }
   /* node to delete has two children
      swap value with left-most child of right subtree (in-order successor)
