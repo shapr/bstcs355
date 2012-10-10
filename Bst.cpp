@@ -205,18 +205,18 @@ bool BST::Remove(int e){
   BNode * d = Find(e); // get a pointer to the node
   if(d==NULL) return false; // well DUH
   // BNode * parent = getParent(d);
-  cout << "removing " << e << " node has value " << d->data << "branches are " << d->left << " " << d->right << endl;
-  cout << "Does NULL == 0? " << (NULL == 0) << endl;
+  // cout << "removing " << e << " node has value " << d->data << "branches are " << d->left << " " << d->right << endl;
+  // cout << "Does NULL == 0? " << (NULL == 0) << endl;
   // node has no children, remove from tree
   if ((d->left == NULL) && (d->right == NULL)) {
-    cout << "inside zero children remove\n";
+    //cout << "inside zero children remove\n";
     if (d == root) {
-      cout << "inside root removal\n";
+      //cout << "inside root removal\n";
       delete d;
       root = NULL;
       return true; // ARGH
     } else {
-      cout << "removing non-root zero-child node\n";
+      //cout << "removing non-root zero-child node\n";
       BNode * parent = getParent(d);
       // check parent, set matching branch pointer to NULL
       if (parent->left == d) {
@@ -256,7 +256,7 @@ bool BST::Remove(int e){
      delete swapped value according to simpler cases above
   */
   BNode * succ = d->right; // follow branch to the right once
-  cout << "succ after one step right has value " << d->data << endl;
+  // cout << "succ after one step right has value " << d->data << endl;
   // a segfault here can only mean I'm not setting the branch pointers to NULL!
   while(succ->left != NULL) { // follow branches all the way to the left
     succ = succ->left;
@@ -364,12 +364,12 @@ void BST::CopyList(BNode* previousNode) {
 		CopyList(previousNode->right);
 }
 
-//BST& BST::operator=(const BST& Ftree){
+BST& BST::operator=(const BST& Ftree){
 
-    //ClearList();
+    ClearList();
 
-    //CopyList(Ftree.root); // Ftree = First Tree
+    CopyList(Ftree.root); // Ftree = First Tree
 
-    //return *this;
+    return *this;
 
-//}
+}
