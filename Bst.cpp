@@ -91,7 +91,6 @@ void BST::PrintIn(ostream& oss){
     return;
   }
   PrintInHelp(oss, root);
-  cout << endl << "Base List";
 }
 
 void BST::PrintInHelp(ostream & oss, BNode * n){
