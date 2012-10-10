@@ -161,7 +161,7 @@ BNode * BST::Find(int e) {
 void BST::FindHelper(int e, BNode * current){
   if (current == NULL) {
     GoToEnd(); // catches the null case
-	cursor = NULL;
+	//cursor = NULL;
     return;
   }
   if (e == current->data) cursor = current;
@@ -399,15 +399,15 @@ void BST::CopyList(BNode* previousNode) {
 	if (previousNode->right != NULL)
 		CopyList(previousNode->right);
 }
-BST& BST::operator=(const BST& Ftree){
+//BST& BST::operator=(const BST& Ftree){
     
-    ClearList();
+    //ClearList();
     
-    CopyList(Ftree.root) // Ftree = First Tree
+    //CopyList(Ftree.root); // Ftree = First Tree
     
-    return *this;
+    //return *this;
     
-}
+//}
 /*
 BNode * BST::getParent(BNode * child){
     
