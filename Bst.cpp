@@ -91,6 +91,7 @@ void BST::PrintIn(ostream& oss){
     return;
   }
   PrintInHelp(oss, root);
+  cout << endl << "Base List";
 }
 
 void BST::PrintInHelp(ostream & oss, BNode * n){
@@ -112,6 +113,7 @@ void BST::PrintPost(ostream& oss){
     return;
   }
   PrintPostHelp(oss, root);
+  cout << endl << "Base List";
 }
 
 void BST::PrintPostHelp(ostream & oss, BNode * n){
@@ -132,6 +134,7 @@ void BST::PrintPre(ostream& oss){
     return;
   }
   PrintPreHelp(oss, root);
+  cout << endl << "Base List";
 }
 
 void BST::PrintPreHelp(ostream & oss, BNode * n){
