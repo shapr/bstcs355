@@ -427,11 +427,11 @@ void BST::CopyList(BNode* previousNode) {
 }
 BST& BST::operator=(const BST& Ftree){
     
-    //ClearList();
+    ClearList();
     
-    //CopyList(Ftree.root); // Ftree = First Tree
+    CopyList(Ftree.root); // Ftree = First Tree
     
-    //return *this;
+    return *this;
     
 }
 /*
