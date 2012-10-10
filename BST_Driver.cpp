@@ -59,11 +59,11 @@ int main(){
 					break;
 				case 'n':
 				case 'N':
-					//testBST.GoToNext();
+					testBST.GoToNext();
 					break;
 				case 'p':
 				case 'P':
-					//testBST.GoToPrev();
+					testBST.GoToPrev();
 					break;
 				case 'c':
 				case 'C':
