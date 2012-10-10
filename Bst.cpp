@@ -90,8 +90,8 @@ void BST::PrintIn(ostream& oss){
     cout << "root is NULL, nothing to print\n";
     return;
   }
-  if(cursor == NULL) { cout << "cursor is NULL";}
-  else { cout << "cursor is " << cursor->data << endl; }
+  // if(cursor == NULL) { cout << "cursor is NULL";}
+  // else { cout << "cursor is " << cursor->data << endl; }
 
   PrintInHelp(oss, root);
 }
