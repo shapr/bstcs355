@@ -113,7 +113,7 @@ void BST::PrintPostHelp(ostream & oss, BNode * n){
 #endif
   if (n->left != NULL) PrintPostHelp(oss, n->left); // recursively print left branches
   if (n->right != NULL) PrintPostHelp(oss, n->right); // recursively print right branches
-  oss << n->data << endl; // Print itself
+  oss << n->data << "	"; // Print itself
 }
 
 void BST::PrintPre(ostream& oss){
@@ -128,7 +128,7 @@ void BST::PrintPreHelp(ostream & oss, BNode * n){
 #ifdef DEBUG
   cout << "entered PrintPreHelp, node holds " << n->data << " left is " << n->left << " right is " << n->right << endl;
 #endif
-  oss << n->data << endl; // Print itself
+  oss << n->data << "	"; // Print itself
   if (n->left != NULL) PrintPreHelp(oss, n->left); // recursively print left branches
   if (n->right != NULL) PrintPreHelp(oss, n->right); // recursively print right branches
 }
@@ -162,8 +162,8 @@ BNode * BST::Find(int e) {
 
 void BST::FindHelper(int e, BNode * current){
   if (current == NULL) {
-    GoToEnd(); // catches the null case
-	//cursor = NULL;
+    GoToEnd(); // catches the null case;
+	cursor = NULL;
     return;
   }
   if (e == current->data) cursor = current;
