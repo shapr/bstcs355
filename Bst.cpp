@@ -94,7 +94,7 @@ void BST::PrintIn(ostream& oss){
 }
 
 void BST::PrintInHelp(ostream & oss, BNode * n){
-
+	
   if (n->left != NULL) PrintInHelp(oss, n->left);   // any left legs have been printed
 	if(n->data == cursor->data)
   oss << "[" <<  n->data << "]" << " "; // Print itself
