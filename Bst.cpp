@@ -90,6 +90,9 @@ void BST::PrintIn(ostream& oss){
     cout << "root is NULL, nothing to print\n";
     return;
   }
+  if(cursor == NULL) { cout << "cursor is NULL";}
+  else { cout << "cursor is " << cursor->data << endl; }
+
   PrintInHelp(oss, root);
 }
 
@@ -200,7 +203,7 @@ BNode * BST::AtCursor()const {
 
 bool BST::Remove(int e){
   BNode * d = Find(e); // get a pointer to the node
-  if(d==NULL) return false; // well DUH 
+  if(d==NULL) return false; // well DUH
   // BNode * parent = getParent(d);
   cout << "removing " << e << " node has value " << d->data << "branches are " << d->left << " " << d->right << endl;
   cout << "Does NULL == 0? " << (NULL == 0) << endl;
@@ -293,175 +296,80 @@ BNode* BST::getParentHelp(BNode * child,BNode * current){
   if ( (found = getParentHelp(child, current->right)) ) return found; // recursively search right branches
   return NULL;
 }
-
 /*
-int BST::RemoveHelp(int e)
-{
-    BNode *back;
-    BNode *temp;
-    BNode *delParent;    // Parent of node to delete
-    BNode *delNode;      // Node to delete
-
-    temp = root;
-    back = NULL;
-
-    // Find the node to delete
-    while((temp != NULL) && (e != temp->e))
-    {
-        back = temp;
-        if(Key < temp->e)
-            temp = temp->left;
-        else
-            temp = temp->right;
-    }
-
-    if(temp == NULL) // Didn't find the one to delete
-    {
-        cout << "Key not found. Nothing deleted.\n";
-        return false;
-    }
-    else
-    {
-        if(temp == root) // Deleting the root
-        {
-            delNode = root;
-            delParent = NULL;
-        }
-        else
-        {
-            delNode = temp;
-            delParent = back;
-        }
-    }
-
-    // Case 1: Deleting node with no children or one child
-    if(delNode->right == NULL)
-    {
-        if(delParent == NULL)    // If deleting the root
-        {
-            root = delNode->left;
-            delete delNode;
-            return true;
-        }
-        else
-        {
-            if(delParent->left == delNode)
-                delParent->left = delNode->left;
-            else
-                delParent->right = delNode->left;
-            delete delNode;
-            return true;
-        }
-    }
-    else // There is at least one child
-    {
-        if(delNode->left == NULL)    // Only 1 child and it is on the right
-        {
-            if(delParent == NULL)    // If deleting the root
-            {
-                root = delNode->right;
-                delete delNode;
-                return true;
-            }
-            else
-            {
-                if(delParent->left == delNode)
-                    delParent->left = delNode->right;
-                else
-                    delParent->right = delNode->right;
-                delete delNode;
-                return true;
-            }
-        }
-        else // Case 2: Deleting node with two children
-        {
-            // Find the replacement value.  Locate the node
-            // containing the largest value smaller than the
-            // key of the node being deleted.
-            temp = delNode->left;
-            back = delNode;
-            while(temp->right != NULL)
-            {
-                back = temp;
-                temp = temp->right;
-            }
-            // Copy the replacement values into the node to be deleted
-            delNode->Key = temp->Key;
-            delNode->fValue = temp->fValue;
-            delNode->iValue = temp->iValue;
-            strcpy(delNode->cArray, temp->cArray);
-
-            // Remove the replacement node from the tree
-            if(back == delNode)
-                back->left = temp->left;
-            else
-                back->right = temp->left;
-            delete temp;
-            return true;
-        }
-    }
-}
+  go to prev is left child or
+  getParent until parent->data < current->data
+  go to next is right child or
+  get parent until parent->data is > current->data
 */
+void BST::GoToPrev(){
+  if (cursor == NULL) return; // duh, fail
 
- /*
+  // branch case, left branch once, right many
+  if (cursor->left != NULL) {
+    cursor = cursor->left;
+    while (cursor->right != NULL) {
+      cursor = cursor->right;
+    }
+    return; // our work here is done.
+  } else {
+    // cursor->left IS null
+    // getParent until the value is less than current->data
+    BNode * parent = getParent(cursor);
+    if (parent == NULL) return; // FAIL
+    while(parent->data > cursor->data){
+      parent = getParent(parent);
+      if (parent == NULL) return; // MORE FAIL
+    }
+    cursor = parent; // found a parent that has a value LESS than the current value, hurrah!
+    return; // our work here is done.
+  }
+}
 
 void BST::GoToNext(){
-	GoToNextHelper(root);
-
+  if(cursor == NULL) {
+    // cout << "cursor is null on gotonext"; 
+    return; // you FAIL
+  }
+  if(cursor->right != NULL) {
+    // cout << "recursing right, then many left";
+    cursor = cursor->right;
+    while(cursor->left != NULL) {
+      cursor = cursor->left;
+    }
+    // cout << "should be right";
+    return; // all done
+  } else {
+    // cursor right IS null, leaf case requires us to go to parent
+    // cout << "gotonext walking parents";
+    BNode * parent = getParent(cursor);
+    if(parent == NULL) return; // NOW what broke?
+    while(parent->data < cursor->data){
+      parent = getParent(parent);
+      if(parent == NULL) return; // you screwed the pooch
+    }
+    cursor = parent; // found a parent that has a value GREATER than the current value!
+    return; // we all done
+  }
 }
 
-void BST::GoToNextHelper(current){
-	if(cursor < current){
-		if(cursor->right !=NULL)
-			cursor = cursor->right;
-		else if(cursor->right == NULL){
-			if(current->left > cursor)
-				cursor = cuurent->left;
-			else if(root->left < cursor)
-				cursor = current;
-		}
-	}
-	else if(cursor > current)
-
-}
- */
 void BST::CopyList(BNode* previousNode) {
-    
+
 	Insert(previousNode->data);
-    
+
 	if (previousNode->left != NULL)
 		CopyList(previousNode->left);
-    
+
 	if (previousNode->right != NULL)
 		CopyList(previousNode->right);
 }
-BST& BST::operator=(const BST& Ftree){
-    
-    ClearList();
-    
-    CopyList(Ftree.root); // Ftree = First Tree
-    
-    return *this;
-    
-}
-/*
-BNode * BST::getParent(BNode * child){
-    
-BNode * temp; // Create temp Node
-temp = root; // Set temp = root for start
- 
-if (child == temp || child == temp->left || child == temp->right)
-return temp;
 
-do { if (child == temp->left || child == temp->right) // If child the number is left or right
-        return temp;
-    
-    if (child->data < temp->data && temp->right != child) // If the child number less than temp and to the right is not the child
-        temp = temp->left;      
-        
-        if (child->data > temp->data && temp->right != child) // If it is greater than return right
-            temp = temp->right;
-            } while (temp->left != child || temp->right != child);
-return temp;
-}
-*/
+//BST& BST::operator=(const BST& Ftree){
+
+    //ClearList();
+
+    //CopyList(Ftree.root); // Ftree = First Tree
+
+    //return *this;
+
+//}
