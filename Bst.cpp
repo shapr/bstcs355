@@ -154,11 +154,14 @@ bool BST::Empty()const {
 }
 
 void BST::GoToBeginning() {
+  if(root == NULL) return;
+  else{
   BNode * n = root;
   while (n->left != NULL) {
     n = n->left;
   }
   cursor = n;
+  }
 }
 
 void BST::GoToEnd() {
