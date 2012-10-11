@@ -367,7 +367,11 @@ void BST::GoToNext(){
 }
 
 void BST::CopyList(BNode* previousNode) {
-
+	if(root == NULL){
+		cout << "List is Empty" << endl;
+		return;
+	}
+	else{
 	Insert(previousNode->data);
 
 	if (previousNode->left != NULL)
@@ -375,6 +379,7 @@ void BST::CopyList(BNode* previousNode) {
 
 	if (previousNode->right != NULL)
 		CopyList(previousNode->right);
+	}
 }
 
 BST& BST::operator=(const BST& Ftree){
