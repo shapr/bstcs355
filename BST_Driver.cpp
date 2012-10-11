@@ -127,6 +127,7 @@ int main(){
 
 void PrintMenu(){
 	/*Commands borrowed from Lab*/
+
 	cout << endl << endl;
 	cout << "  Command Line Options" << endl;
 	cout << "  H\tHelp: Show Comman Line Options" << endl;
